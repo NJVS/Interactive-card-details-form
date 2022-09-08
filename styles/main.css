@@ -1,0 +1,419 @@
+:root {
+  --f-style-primary: "Space Grotesk", sans-serif;
+  --c-input-text: #21092f;
+  --c-input-placeholder: rgba(142, 133, 147, 0.5);
+  --c-input-border: #dedddf;
+  --c-input-focus-border: #600594;
+  --c-input-focus-shadow: rgba(96, 5, 148, 0.2);
+  --c-input-error: #ff5252;
+  --c-button-text: white;
+  --c-button-background: #21092f;
+  --c-button-background-hover: #391051;
+  --c-button-background-active: #4e156f;
+  --c-button-focus-shadow: rgba(96, 5, 148, 0.2);
+  --c-neutral-dark: #21092f;
+  --c-neutral-gray: #8e8593;
+  --c-neutral-light: #dedddf;
+  --c-neutral-white: white;
+}
+
+/* Set core root default */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  width: 100%;
+  height: auto;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  position: relative;
+}
+body .preload *,
+body .preload *::before,
+body .preload *::after {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.card {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  padding: 1.85rem;
+  width: 447px;
+  height: 245px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: var(--c-neutral-light);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  z-index: 1000;
+}
+@media (max-width: 768px) {
+  .card {
+    width: min(447px, 80%);
+    height: auto;
+    aspect-ratio: 447/245;
+  }
+}
+@media (max-width: 426px) {
+  .card {
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+}
+.card .card_logo {
+  width: min(84px, 20%);
+  height: auto;
+  aspect-ratio: 84/47;
+}
+.card .card_number {
+  flex-grow: 1;
+  display: flex;
+  align-items: end;
+  font-size: clamp(1rem, 4.5vw, 1.75rem);
+  color: var(--c-neutral-white);
+  font-weight: 500;
+}
+.card .card_holder,
+.card .card_date {
+  text-transform: uppercase;
+  font-size: clamp(0.75rem, 2.5vw, 1rem);
+  font-weight: 400;
+}
+.card .card_cvc {
+  margin-right: 1.15rem;
+  margin-top: -2px;
+  font-size: clamp(0.75rem, 2.5vw, 1rem);
+}
+.card.card-front {
+  flex-direction: column;
+  background-image: url(../images/bg-card-front.png);
+}
+.card.card-back {
+  justify-content: end;
+  align-items: center;
+  background-image: url(../images/bg-card-back.png);
+}
+
+form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+form .form-group {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+form .form-group label {
+  display: block;
+  margin-bottom: 0.375rem;
+  color: var(--c-input-text);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+form .form-group input:not([type=submit]) {
+  position: inherit;
+  display: block;
+  padding: 0.475rem 0.75rem;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--c-input-border);
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+form .form-group input:not([type=submit])::placeholder {
+  color: var(--c-input-placeholder);
+  font-weight: 500;
+}
+form .form-group input:not([type=submit]):hover {
+  border-color: var(--c-input-focus-border);
+}
+form .form-group input:not([type=submit]):focus {
+  border-color: var(--c-input-focus-border);
+  box-shadow: 0 0 0 3px var(--c-input-focus-shadow);
+}
+form .form-group input:not([type=submit])[type=number] {
+  -moz-appearance: none;
+}
+form .form-group input:not([type=submit])[type=number]::-webkit-outer-spin-button, form .form-group input:not([type=submit])[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+form .form-group input:not([type=submit]).invalid {
+  border-color: var(--c-input-error);
+}
+form .form-group .input-group {
+  display: flex;
+  gap: 0.625rem;
+}
+form .form-group .error-message {
+  margin: 0.25rem 0 0 0.375rem;
+  color: var(--c-input-error);
+  font-size: 0.87rem;
+  font-weight: 500;
+}
+form .form-inline {
+  display: inline-flex;
+  gap: 1.3rem;
+}
+
+button,
+input[type=button],
+input[type=submit] {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0.75rem;
+  background-color: var(--c-button-background);
+  border-radius: 8px;
+  color: var(--c-neutral-white);
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  button:hover,
+input[type=button]:hover,
+input[type=submit]:hover {
+    background-color: var(--c-button-background-hover);
+  }
+}
+button:active,
+input[type=button]:active,
+input[type=submit]:active {
+  background-color: var(--c-button-background-active);
+}
+button:focus:not(:active),
+input[type=button]:focus:not(:active),
+input[type=submit]:focus:not(:active) {
+  box-shadow: 0 0 0 3px var(--c-button-focus-shadow);
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+.d-flex.space-between {
+  justify-content: space-between;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--c-neutral-white);
+  font-family: var(--f-style-primary);
+}
+@media (max-width: 912px) {
+  body {
+    align-items: start;
+  }
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 66%;
+  height: 100%;
+  background-image: url(../images/bg-main-desktop.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+@media (min-width: 1920px) {
+  body::before {
+    right: 62%;
+  }
+}
+@media (max-width: 912px) {
+  body::before {
+    background-image: url(../images/bg-main-mobile.png);
+    right: 0;
+    height: 30%;
+  }
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  width: min(970px, 90%);
+  margin-left: -5.1rem;
+}
+main .card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: min(550px, 100%);
+}
+main .card-details .card-back {
+  align-self: end;
+  z-index: 9;
+}
+main .form-container {
+  justify-self: end;
+  width: min(350px, 100%);
+}
+main .form-container.resolved > form {
+  display: none;
+}
+main .form-container.resolved > .resolved-container {
+  display: flex;
+}
+main .form-container .resolved-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.125rem;
+}
+main .form-container .resolved-container .heading {
+  text-align: center;
+}
+main .form-container .resolved-container .heading h1 {
+  color: var(--c-neutral-dark);
+  font-size: 2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+main .form-container .resolved-container .heading p {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--c-neutral-gray);
+}
+@media (max-width: 912px) {
+  main {
+    padding-top: 2rem;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin-left: unset;
+  }
+  main .card-details {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+  main .card-details .card-front {
+    transform: translateY(-40%);
+    z-index: 10;
+  }
+  main .form-container {
+    justify-self: unset;
+  }
+}
+
+.attribution {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 66%;
+  color: var(--c-neutral-white);
+  font-size: 0.75rem;
+  text-align: center;
+}
+.attribution a {
+  color: var(--c-input-error);
+  text-decoration: none;
+  font-weight: 500;
+}
+@media (min-width: 1920px) {
+  .attribution {
+    right: 62%;
+  }
+}
+@media (max-width: 912px) {
+  .attribution {
+    left: unset;
+    right: unset;
+    color: var(--c-neutral-dark);
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

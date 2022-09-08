@@ -1,0 +1,13 @@
+// map deep nested values
+@function deepMap($map, $keys...) {
+  @each $key in $keys {
+      @if map-has-key($map, $key) {
+          $map: map-get($map, $key);
+      } @else {
+          $_: log("#{$key} key doesn't exist");
+          @return null;
+      }
+  }
+
+  @return $map;
+}

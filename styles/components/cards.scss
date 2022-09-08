@@ -1,0 +1,65 @@
+@use '../helpers/mixins.scss' as *;
+
+.card {
+  display: flex;
+  gap: 1rem;
+
+  position: relative;
+  padding: 1.85rem;
+  width: 447px;
+  height: 245px;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: var(--c-neutral-light);
+
+  font-size: 1rem;
+  letter-spacing: 2px;
+  z-index: 1000;
+
+  @include media-query('mobile', 'md') {
+    width: min(447px, 80%);
+    height: auto; 
+    aspect-ratio: 447/245;
+  }
+  @include media-query(mobile, sm) {
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .card_logo {
+    width: min(84px, 20%);
+    height: auto; 
+    aspect-ratio: 84/47;
+  }
+  .card_number {
+    flex-grow: 1;
+    display: flex;
+    align-items: end;
+    font-size: clamp(1rem, 4.5vw, 1.75rem);
+    color: var(--c-neutral-white);
+    font-weight: 500;
+  }
+  .card_holder,
+  .card_date {
+    text-transform: uppercase;
+    font-size: clamp(0.75rem, 2.5vw, 1rem);
+    font-weight: 400;
+  }
+  .card_cvc {
+    margin-right: 1.15rem;
+    margin-top: -2px;
+    font-size: clamp(0.75rem, 2.5vw, 1rem);
+  }
+  
+  &.card-front {
+    flex-direction: column;
+    background-image: url(../images/bg-card-front.png);
+  }
+
+  &.card-back {
+    justify-content: end;
+    align-items: center;
+    background-image: url(../images/bg-card-back.png);
+  }
+}

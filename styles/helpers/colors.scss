@@ -1,0 +1,24 @@
+$colors: (
+  input: (
+    text: hsl(278, 68%, 11%),
+    placeholder: rgba(hsl(279, 6%, 55%), 0.5),
+    border: hsl(270, 3%, 87%),
+    // focus-border: linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%)),
+    focus-border: hsl(278, 94%, 30%),
+    focus-shadow: rgba(hsl(278, 94%, 30%), 0.2),
+    error: hsl(0, 100%, 66%),
+  ),
+  button: (
+    text: hsl(0, 0%, 100%),
+    background: hsl(278, 68%, 11%),
+    background-hover: lighten(hsl(278, 68%, 11%), 8%),
+    background-active: lighten(hsl(278, 68%, 11%), 15%),
+    focus-shadow: rgba(hsl(278, 94%, 30%), 0.2),
+  ),
+  neutral: (
+    dark: hsl(278, 68%, 11%),
+    gray: hsl(279, 6%, 55%),
+    light: hsl(270, 3%, 87%),
+    white: hsl(0, 0%, 100%),
+  ),
+);

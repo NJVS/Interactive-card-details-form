@@ -1,0 +1,11 @@
+@use '../helpers' as *;
+
+:root {
+  --f-style-primary: 'Space Grotesk', sans-serif;
+
+  @each $themes, $colors in $colors {
+    @each $name, $value in $colors {
+      --c-#{$themes}-#{""+$name}: #{$value};
+    }
+  }
+}

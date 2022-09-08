@@ -1,0 +1,29 @@
+@use '../helpers' as *;
+
+button,
+input[type=button],
+input[type=submit] {
+  display: block;
+  width: 100%;
+  height: auto;
+  // margin-top: 1.25rem;
+  padding: 0.75rem;
+  background-color: var(--c-button-background);
+  border-radius: 8px;
+  color: var(--c-neutral-white);
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+
+  @include hover {
+    background-color: var(--c-button-background-hover);
+  }
+
+  &:active {
+    background-color: var(--c-button-background-active);
+  }
+  &:focus:not(:active) {
+    box-shadow: 0 0 0 3px var(--c-button-focus-shadow);
+  }
+}  
